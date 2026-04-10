@@ -7,3 +7,10 @@
     filter: blur(12px);
     transition: filter 1s;
   }
+
+  .main-heading {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 20px;
+    margin: 0;
+  }
