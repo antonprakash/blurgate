@@ -1,22 +1,90 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Blurred Page Proof of Concept</title>
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlurGate - The Ultimate Scandal Blurring Service</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
+  <header>
+    <nav>
+      <div class="logo">BlurGate</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="blurred">
-    <p>This content will be blurred</p>
-    <img src="sample.jpg" class="blurred-image"/>
-  </div>
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Welcome to BlurGate</h1>
+        <h2>Because Every Scandal Needs a "Gate"... and a Good Blur!</h2>
+        <p class="hero-subtitle">From Watergate to your embarrassing vacation photos, we've got you covered with premium blurring services!</p>
+        
+        <div class="demo-section">
+          <div class="blurred">
+            <p>This scandalous content will be blurred until you click the magic keyword!</p>
+            <img src="images/image.jpg" class="blurred-image" alt="Mysterious scandal photo"/>
+          </div>
+          
+          <div class="keyword-section">
+            <p>Click the secret keyword to reveal the "scandal":</p>
+            <div id="keyword" class="keyword-button">
+              Loading...
+            </div>
+          </div>
+        </div>
+        
+        <div class="cta-buttons">
+          <button class="btn-primary">Start Blurring Now</button>
+          <button class="btn-secondary">Learn More</button>
+        </div>
+      </div>
+    </section>
 
-  <div id="keyword">
-    Text blah blah
-  </div>
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <h2>Our Premium Blurring Services</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>ScandalGate Pro</h3>
+            <p>Professional-grade blurring for major political scandals and corporate mishaps.</p>
+          </div>
+          <div class="service-card">
+            <h3>CelebGate Deluxe</h3>
+            <p>Celebrity photo protection with our patented "paparazzi-proof" blur technology.</p>
+          </div>
+          <div class="service-card">
+            <h3>PersonalGate Basic</h3>
+            <p>Everyday embarrassment protection for your social media fails and awkward moments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="terms.html">Terms of Use</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright 2026. Made with <span class="heart">❤️</span> by <a href="https://www.ephrontech.com" target="_blank">EphronTech</a></p>
+      </div>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
-
 </body>
 </html>
