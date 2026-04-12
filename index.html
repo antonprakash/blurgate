@@ -5,6 +5,99 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BlurGate - The Ultimate Scandal Blurring Service</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    .countdown-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 600px;
+      margin: 3rem auto;
+    }
+    
+    .countdown-box {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 2rem 1rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    .countdown-number {
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .countdown-label {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+    
+    .launched-message {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #ff6b6b;
+      text-shadow: 0 0 30px rgba(255, 107, 107, 0.8);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    .notify-btn {
+      background: #ff6b6b;
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      margin-top: 2rem;
+    }
+    
+    .notify-btn:hover {
+      background: #ff5252;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+    }
+    
+    @media (max-width: 768px) {
+      .countdown-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        max-width: 400px;
+      }
+      
+      .countdown-box {
+        padding: 1.5rem 0.5rem;
+      }
+      
+      .countdown-number {
+        font-size: 2.5rem;
+      }
+      
+      .countdown-label {
+        font-size: 0.9rem;
+      }
+      
+      .launched-message {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -24,52 +117,31 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-content">
-        <h1>Welcome to BlurGate</h1>
-        <h2>Because Every Scandal Needs a "Gate"... and a Good Blur!</h2>
-        <p class="hero-subtitle">From Watergate to your embarrassing vacation photos, we've got you covered with premium blurring services!</p>
+        <h1>BlurGate Launches Soon</h1>
+        <p class="hero-subtitle">The ultimate scandal management platform</p>
         
-        <div class="demo-section">
-          <div class="blurred">
-            <p>This scandalous content will be blurred until you click the magic keyword!</p>
-            <img src="images/image.jpg" class="blurred-image" alt="Mysterious scandal photo"/>
+        <div id="countdown" class="countdown-container">
+          <div class="countdown-box">
+            <span id="days" class="countdown-number">00</span>
+            <div class="countdown-label">Days</div>
           </div>
-          
-          <div class="keyword-section">
-            <p>Click the secret keyword to reveal the "scandal":</p>
-            <div id="keyword" class="keyword-button">
-              Loading...
-            </div>
+          <div class="countdown-box">
+            <span id="hours" class="countdown-number">00</span>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-box">
+            <span id="minutes" class="countdown-number">00</span>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="countdown-box">
+            <span id="seconds" class="countdown-number">00</span>
+            <div class="countdown-label">Seconds</div>
           </div>
         </div>
         
-        <div class="cta-buttons">
-          <button class="btn-primary">Start Blurring Now</button>
-          <button class="btn-secondary">Learn More</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Latest News Section -->
-    <section class="news">
-      <div class="container">
-        <h2>Latest News</h2>
-        <div class="news-grid">
-          <div class="news-card">
-            <h3>BlurGate 3.0 Launches with AI-Powered Scandal Detection</h3>
-            <p class="news-date">December 15, 2024</p>
-            <p>Our revolutionary new AI can now predict scandals before they happen and automatically apply preemptive blurring. Beta testing shows 99.7% accuracy in detecting potential "-gate" situations.</p>
-          </div>
-          <div class="news-card">
-            <h3>Partnership with Major Social Media Platforms</h3>
-            <p class="news-date">December 10, 2024</p>
-            <p>BlurGate announces exclusive partnerships with leading social networks to provide instant blur protection for viral embarrassments. Now available as a browser extension!</p>
-          </div>
-          <div class="news-card">
-            <h3>Record-Breaking Month: 50,000 Scandals Blurred</h3>
-            <p class="news-date">December 5, 2024</p>
-            <p>November 2024 marked our biggest month yet, with over 50,000 scandals successfully blurred across 47 countries. From CoffeeGate to PizzaGate 2.0, we've got you covered.</p>
-          </div>
-        </div>
+        <div id="launched" class="launched-message" style="display: none;">LAUNCHED!</div>
+        
+        <button class="notify-btn">Notify Me</button>
       </div>
     </section>
 
@@ -109,6 +181,38 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Countdown Timer to July 4th, 2026 at midnight EST
+    function updateCountdown() {
+      const targetDate = new Date('2026-07-04T00:00:00-05:00'); // EST timezone
+      const now = new Date();
+      const difference = targetDate - now;
+      
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+      } else {
+        // Launch date reached
+        document.getElementById('countdown').style.display = 'none';
+        document.getElementById('launched').style.display = 'block';
+      }
+    }
+    
+    // Update countdown every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    
+    // Notify Me button functionality
+    document.querySelector('.notify-btn').addEventListener('click', function() {
+      alert('Thanks for your interest! We\'ll notify you when BlurGate launches!');
+    });
+  </script>
 </body>
 </html>
