@@ -55,6 +55,25 @@
       height: 120px;
       resize: vertical;
     }
+    .captcha-container {
+      background: #e9ecef;
+      padding: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      margin-bottom: 1rem;
+    }
+    .captcha-question {
+      font-weight: bold;
+      color: #764ba2;
+      margin-bottom: 0.5rem;
+    }
+    .captcha-input {
+      width: 100px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 1rem;
+    }
     .submit-btn {
       background: #764ba2;
       color: white;
@@ -113,6 +132,14 @@
             <textarea id="message" name="message" placeholder="Describe your blurring needs..." required></textarea>
           </div>
           
+          <div class="form-group">
+            <label>CAPTCHA Verification:</label>
+            <div class="captcha-container">
+              <div class="captcha-question" id="captcha-question">What is 5 + 3?</div>
+              <input type="text" id="captcha-answer" class="captcha-input" placeholder="Answer" required>
+            </div>
+          </div>
+          
           <button type="submit" class="submit-btn">Send Message</button>
         </form>
       </div>
@@ -143,5 +170,34 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Simple CAPTCHA implementation
+    function generateCaptcha() {
+      const num1 = Math.floor(Math.random() * 10) + 1;
+      const num2 = Math.floor(Math.random() * 10) + 1;
+      const question = `What is ${num1} + ${num2}?`;
+      const answer = num1 + num2;
+      
+      document.getElementById('captcha-question').textContent = question;
+      document.getElementById('captcha-question').dataset.answer = answer;
+    }
+    
+    // Generate CAPTCHA on page load
+    document.addEventListener('DOMContentLoaded', generateCaptcha);
+    
+    // Validate CAPTCHA on form submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+      const userAnswer = parseInt(document.getElementById('captcha-answer').value);
+      const correctAnswer = parseInt(document.getElementById('captcha-question').dataset.answer);
+      
+      if (userAnswer !== correctAnswer) {
+        e.preventDefault();
+        alert('CAPTCHA verification failed. Please try again.');
+        generateCaptcha();
+        document.getElementById('captcha-answer').value = '';
+      }
+    });
+  </script>
 </body>
 </html>
